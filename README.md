@@ -1,6 +1,6 @@
 ![Codine Development Fuel Script Banner](https://i.imgur.com/qVOMMvW.png)
 
-# _CDN-Fuel (2.1.9)_ 
+# _CDN-Fuel (2.1.9)_
 
 A highly in-depth fuel system for **FiveM** with support for the **QBCore Framework & QBox Remastered**.
 
@@ -8,7 +8,7 @@ A highly in-depth fuel system for **FiveM** with support for the **QBCore Framew
 
 *Fixes:*
 - Jerry Cans not refuelling at pump.
-- Removed spamming debug print. 
+- Removed spamming debug print.
 - Changed the way Air Fuel Zones spawn PolyZones and Props.
 - Player Job Error on load.
 - Syphoning Issue with QB-Inventory.
@@ -76,7 +76,7 @@ Next, we're going to drag the sounds from the *cdn-fuel/assets/sounds* folder in
 
 ### Step 3:
 
-Next, we're going to open our entire resources folder in whichever IDE you use, (we will be using Visual Studio Code for this example) and replace all of your current exports titled "LegacyFuel", "ps-fuel" or "lj-fuel", with "cdn-fuel". Then you want to ensure cdn-fuel in your server's config file. 
+Next, we're going to open our entire resources folder in whichever IDE you use, (we will be using Visual Studio Code for this example) and replace all of your current exports titled "cdn-fuel", "ps-fuel" or "lj-fuel", with "cdn-fuel". Then you want to ensure cdn-fuel in your server's config file.
 <br> <br>
 ![step 3](https://i.imgur.com/VZnQpcS.gif)
 
@@ -86,11 +86,11 @@ Next, we're going to open our entire resources folder in whichever IDE you use, 
 
 Next, we're going to run our SQL file, which is needed if we want to use the Player Owned Gas Stations, otherwise you do not have to run it.
 
-<br> 
+<br>
 
 The file you need to run is located @ _cdn-fuel/assets/sql/cdn-fuel.sql_
 
-<br> 
+<br>
 
 Here is a GIF to run you through the process of running an SQL file:
 
@@ -127,7 +127,7 @@ Make sure to **ensure** this new resource as well as _cdn-fuel_ in your _server.
 ### Step 6:
 ***If you are using OX_Inventory, this step can be ignored.***
 <br><br>
-We will now be installing the Jerry Can & Syphoning Kit items into your server. You don't have to install either, but they are recommended additions. You can install them & disable them in the config, until you want to use them later on! 
+We will now be installing the Jerry Can & Syphoning Kit items into your server. You don't have to install either, but they are recommended additions. You can install them & disable them in the config, until you want to use them later on!
 <br> <br>
 If you plan to not use them, you can skip this Step and Step 7!
 <br> <br>
@@ -147,12 +147,12 @@ You can follow this GIF to better understand how to install the items:
 Now, we need to format item data in our inventory. Firstly, find the *app.js* located at *inventoryname/html/js/app.js*.
 <br> <br>
 Now we will CTRL+F the following line:
-<br> 
+<br>
 ```js
 } else if (itemData.name == "harness") {
 ```
 Once you have found this line, copy the following one line above it:
-<br> 
+<br>
 ```js
         } else if (itemData.name == "syphoningkit") { // Syphoning Kit (CDN-Fuel or CDN-Syphoning!)
             $(".item-info-title").html("<p>" + itemData.label + "</p>");
@@ -174,11 +174,11 @@ Once you have found this line, copy the following one line above it:
 ![Step4JSGIF](https://i.imgur.com/lKq9WDR.gif)
 <br> <br>
 Next, we'll add the item's images into our Inventory resource. This is a simple process.
-<br> <br> 
+<br> <br>
 Navigate to the cdn-fuel resource and follow this path: *cdn-fuel/assets/images*
-<br> <br> 
+<br> <br>
 Once there, select both images and either drag or *CTRL + X and CTRL + V* them into your inventory's image folder, usually the path is: *inventoryname/html/images/*
-<br> <br> 
+<br> <br>
 You can follow this GIF to get a better understanding:
 <br>
 ![Step4ImagesGIF](https://i.imgur.com/C0uwjfX.gif)
@@ -206,7 +206,7 @@ Alternatively, watch this GIF to better understand the process:
 <br>
 ![Step6 GIF](https://i.imgur.com/yrkR7cJ.gif)
 
-<br> 
+<br>
 
 ##### QB-Shop Setup
 
@@ -234,16 +234,16 @@ Here are some preconfigured shop items if you wish to put them in the shop. (The
 You will most likely have to change the slot it is in for it to work properly!
 <br><br>
 
-### QB-Target Issue Fix 
+### QB-Target Issue Fix
 
-There is a **possible** issue with *qb-target* if you are using the *Config.GlobalVehicleOptions* or *Config.TargetBones* options. 
+There is a **possible** issue with *qb-target* if you are using the *Config.GlobalVehicleOptions* or *Config.TargetBones* options.
 <br>
 ### **If you are NOT having this issue occur, do not follow the instructions below, as it could mess up other things.**
 <br>
 
 *Here is a simple fix for that issue:*
 
-<br> 
+<br>
 
 Firstly, this option will have to be added to your *Config.TargetBones* under the bones you are having trouble with:
 ```Lua
@@ -268,7 +268,7 @@ Firstly, this option will have to be added to your *Config.TargetBones* under th
 *Here is an example of how to add this option:*
 
 ![Step5part33 QB-Target](https://i.imgur.com/UOgPJRi.png)
-<br> 
+<br>
 *This is **specifically** for the "**boot**" bone, but, add it on which bone you are having trouble with.*
 
 <br>
@@ -277,7 +277,7 @@ Firstly, this option will have to be added to your *Config.TargetBones* under th
 *Next, we'll add this simple Function & Export into our QB-Target in the Functions() area:*
 
 ```Lua
-local function AllowRefuel(state, electric) 
+local function AllowRefuel(state, electric)
     if state then
 		if electric then
 			AllowElectricRefuel = true
@@ -294,14 +294,14 @@ local function AllowRefuel(state, electric)
 end exports('AllowRefuel', AllowRefuel)
 ```
 
-<br> 
+<br>
 
 
 **Example Image:**
 
 ![Step5 Part 421421412](https://i.imgur.com/pwpa5Tk.png)
 
-<br> 
+<br>
 
 Lastly, add the following to the top of your _init.lua_ in QB-Target:
 ```
@@ -316,7 +316,7 @@ local AllowElectricRefuel = false
 
 Now, set the *Config.FuelTargetExport* in *cdn-fuel/shared/config.lua* to **true**.
 
-<br> 
+<br>
 
 ![Step5 Part 1421942151251](https://i.imgur.com/InBl500.png)
 
@@ -349,7 +349,7 @@ function ToggleEngine(veh)
                             Wait(3500)
                             NotifyCooldown = false
                         end
-                    end                
+                    end
                 end
             end
         end
@@ -357,11 +357,11 @@ function ToggleEngine(veh)
 end
 ```
 
-<br> 
+<br>
 
 ### You are now officially done installing!
 
-<br> 
+<br>
 
 Enjoy using **cdn-fuel**, if you have an issues, [create an issue](https://github.com/CodineDev/cdn-fuel/issues/new/choose) on the repository, and we will fix it **ASAP**!
 
@@ -405,7 +405,7 @@ Here's a couple of videos showcasing the script in action!
 - **OX Conversion:**
 <br><br><img src="https://avatars.githubusercontent.com/u/6962192?v=4" width="25" height="25">
 **[NoobySloth](https://github.com/noobysloth)**
-for making the initial **OX** portion of the script. 
+for making the initial **OX** portion of the script.
 <br><br><img src="https://avatars.githubusercontent.com/u/82969741?v=4" width="25" height="25">
 **[xViperAG](https://www.github.com/xViperAG)**
 for adding more OX functionality & support for QBox Remastered.

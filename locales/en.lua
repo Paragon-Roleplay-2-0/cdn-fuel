@@ -15,7 +15,7 @@ local Translations = {
     tank_already_full = "Your vehicle is already full!",
     need_electric_charger = "I need to go to an electric charger!",
     cannot_refuel_inside = "You cannot refuel from inside of the vehicle!",
-    
+
     -- 2.1.2 -- Reserves Pickup ---
     fuel_order_ready = "Your fuel order is available for pickup! Take a look at your GPS to find the pickup!",
     draw_text_fuel_dropoff = "[E] Drop Off Truck",
@@ -29,7 +29,7 @@ local Translations = {
     vehicle_too_far = "You are too far to fuel this vehicle!",
     inside_vehicle = "You cannot refuel from inside the vehicle!",
     you_are_discount_eligible = "If you go on duty, you could recieve a discount of "..Config.EmergencyServicesDiscount['discount'].."%!",
-    no_fuel = "No fuel..",
+    no_fuel = "No fuel...",
 
     -- Electric
     electric_more_than_zero = "You have to charge more than 0KW!",
@@ -56,11 +56,11 @@ local Translations = {
     station_name_invalid = "This name is invalid!",
     station_name_too_long = "Name cannot be longer than "..Config.NameChangeMaxChar.." characters.",
     station_name_too_short = "Name must be longer than "..Config.NameChangeMinChar.." characters.",
-    station_withdraw_too_much = "You cannot withdraw more than the station has!", 
+    station_withdraw_too_much = "You cannot withdraw more than the station has!",
     station_withdraw_too_little = "You cannot withdraw less than $1!",
     station_success_withdrew_1 = "Successfully withdrew $",
     station_success_withdrew_2 = " from this station's balance!", -- Leave the space @ the front!
-    station_deposit_too_much = "You cannot deposit more than the you have!", 
+    station_deposit_too_much = "You cannot deposit more than the you have!",
     station_deposit_too_little = "You cannot deposit less than $1!",
     station_success_deposit_1 = "Successfully deposited $",
     station_success_deposit_2 = " into this station's balance!", -- Leave the space @ the front!
@@ -74,19 +74,19 @@ local Translations = {
     station_sold_location_payment_label = "Sold a Gas Station Location: ",
     station_withdraw_payment_label = "Withdrew money from Gas Station. Location: ",
     station_deposit_payment_label = "Deposited money to Gas Station. Location: ",
+
     -- All Progress Bars
-    prog_refueling_vehicle = "Refueling Vehicle..",
-    prog_electric_charging = "Charging..",
-    prog_jerry_can_refuel = "Refueling Jerry Can..",
-    prog_syphoning = "Syphoning Fuel..",
+    prog_refueling_vehicle = "Refueling Vehicle...",
+    prog_electric_charging = "Charging...",
+    prog_jerry_can_refuel = "Refueling Jerry Can...",
+    prog_syphoning = "Syphoning Fuel...",
 
     -- Menus
-    
     menu_header_cash = "Cash",
     menu_header_bank = "Bank",
     menu_header_close = "Cancel",
     menu_pay_with_cash = "Pay with cash.  \nYou have: $",
-    menu_pay_with_bank = "Pay with bank.", 
+    menu_pay_with_bank = "Pay with bank.",
     menu_refuel_header = "Gas Station",
     menu_refuel_accept = "I would like to purchase the fuel.",
     menu_refuel_cancel = "I actually don't want fuel anymore.",
@@ -102,9 +102,7 @@ local Translations = {
     menu_electric_payment_label_1 = "Electricity @ ",
     menu_electric_payment_label_2 = " / KW",
 
-
     -- Station Menus
-
     menu_ped_manage_location_header = "Manage This Location",
     menu_ped_manage_location_footer = "If you are the owner, you can manage this location.",
 
@@ -113,7 +111,7 @@ local Translations = {
 
     menu_ped_emergency_shutoff_header = "Toggle Emergency Shutoff",
     menu_ped_emergency_shutoff_footer = "Shut off the fuel in case of an emergency.   \n The pumps are currently ",
-    
+
     menu_ped_close_header = "Cancel Conversation",
     menu_ped_close_footer = "I actually don't want to discuss anything anymore.",
 
@@ -121,7 +119,7 @@ local Translations = {
     menu_station_reserves_purchase_header = "Buy reserves for: $",
     menu_station_reserves_purchase_footer = "Yes I want to buy fuel reserves for $",
     menu_station_reserves_cancel_footer = "I actually don't want to buy more reserves!",
-    
+
     menu_purchase_station_header_1 = "The total cost is going to be: $",
     menu_purchase_station_header_2 = " including taxes.",
     menu_purchase_station_confirm_header = "Confirm",
@@ -137,14 +135,14 @@ local Translations = {
     menu_manage_reserves_header = "Fuel Reserves  \n",
     menu_manage_reserves_footer_1 =  " Liters out of ",
     menu_manage_reserves_footer_2 =  " Liters  \nYou can purchase more reserves below!",
-    
+
     menu_manage_purchase_reserves_header = "Purchase More Fuel for Reserves",
     menu_manage_purchase_reserves_footer = "I want to purchase more fuel reserves for $",
     menu_manage_purchase_reserves_footer_2 = " / L!",
 
     menu_alter_fuel_price_header = "Alter Fuel Price",
     menu_alter_fuel_price_footer_1 = "I want to change the price of fuel at my Gas Station!  \nCurrently, it is $",
-    
+
     menu_manage_company_funds_header = "Manage Company Funds",
     menu_manage_company_funds_footer = "I want to manage this locations funds.",
     menu_manage_company_funds_header_2 = "Funds Management of ",
@@ -160,9 +158,9 @@ local Translations = {
 
     menu_manage_sell_station_footer = "Sell your gas station for $",
 
-    menu_manage_close = "I actually don't have anything more to discuss!", 
+    menu_manage_close = "I actually don't have anything more to discuss!",
 
-    -- Jerry Can Menus 
+    -- Jerry Can Menus
     menu_jerry_can_purchase_header = "Purchase Jerry Can for $",
     menu_jerry_can_footer_full_gas = "Your Jerry Can is full!",
     menu_jerry_can_footer_refuel_gas = "Refuel your Jerry Can!",
@@ -180,7 +178,6 @@ local Translations = {
     menu_syphon_cancel = "I actually don't want to use this anymore. I've turned a new leaf!",
     menu_syphon_header = "Syphon",
     menu_syphon_refuel_header = "Refuel",
-
 
     -- Input --
     input_select_refuel_header = "Select how much gas to refuel.",

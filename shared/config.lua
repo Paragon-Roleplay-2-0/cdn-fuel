@@ -1,8 +1,9 @@
 Config = {}
-Config.FuelDebug = false -- Used for debugging, although there are not many areas in yet (Default: false) + Enables Setfuel Commands (0, 50, 100). 
+
+Config.FuelDebug = false -- Used for debugging, although there are not many areas in yet (Default: false) + Enables Setfuel Commands (0, 50, 100).
 Config.PolyDebug = false -- Enables Polyzone Debugging to see PolyZones!
-Config.ShowNearestGasStationOnly = true -- When enabled, only the nearest gas stations will be shown on the map.
-Config.LeaveEngineRunning = false -- When true, the vehicle's engine will be left running upon exit if the player *HOLDS* F.
+Config.ShowNearestGasStationOnly = false -- When enabled, only the nearest gas stations will be shown on the map.
+Config.LeaveEngineRunning = true -- When true, the vehicle's engine will be left running upon exit if the player *HOLDS* F.
 Config.VehicleBlowUp = true -- When true, there will be a configurable chance of the vehicle blowing up, if you fuel while the engine is on.
 Config.BlowUpChance = 5 -- Percentage for Chance of Engine Explosion (Default: 5% or 5)
 Config.CostMultiplier = 3 -- Amount to multiply 1 by. This indicates fuel price. (Default: $3.0/l or 3.0)
@@ -44,21 +45,23 @@ Config.EmergencyServicesDiscount = {
     ['ondutyonly'] = true, -- Discount only applies while on duty.
     ['job'] = {
         "police",
+        "lssd",
         "sasp",
-        "trooper",
+        -- "trooper",
         "ambulance",
     }
 }
+
 Config.Core = 'qb-core' -- Change this to your core resources (Ex: 'qbx-core' | 'qb-core'), must be qb based!
 Config.Ox = {
-    Inventory = false, -- Uses OX_Inventory's metadata instead of QB-Inventory's.
-    Menu = false, -- Uses OX Libraries instead of qb-menu.
-    Input = false, -- Uses Ox Input Dialog instead of qb-input.
-    DrawText = false, -- Uses Ox DrawText instead of qb-core DrawText.
-    Progress = false -- Uses Ox ProgressBar instead of progressbar.
+    Inventory = true, -- Uses OX_Inventory's metadata instead of QB-Inventory's.
+    Menu = true, -- Uses OX Libraries instead of qb-menu.
+    Input = true, -- Uses Ox Input Dialog instead of qb-input.
+    DrawText = true, -- Uses Ox DrawText instead of qb-core DrawText.
+    Progress = true -- Uses Ox ProgressBar instead of progressbar.
 }
-Config.TargetResource = "qb-target" -- Supported: { 'qb-target', 'ox_target'} -- Others must use the same format as QB-Target or manual configuration is required.
-Config.PumpHose = false -- If true, it creates a hose from the pump to the nozzle the client is holding, to give it a more realistic feel.
+Config.TargetResource = "ox_target" -- Supported: { 'qb-target', 'ox_target'} -- Others must use the same format as QB-Target or manual configuration is required.
+Config.PumpHose = true -- If true, it creates a hose from the pump to the nozzle the client is holding, to give it a more realistic feel.
 Config.RopeType = { -- Options: 1-2-3-4-5; 1: Khaki Color, Kind of Thick, 2: Very Thick Khaki Rope, 3: Very Thick Black Rope, 4: Very Thin Black Rope, 5: Same as 3
     ['fuel'] = 1,
     ['electric'] = 1,
@@ -73,18 +76,17 @@ Config.VehicleShutoffOnLowFuel = { -- If enabled, vehicles will turn off when th
         ['sound'] = "Landing_Tone", -- Sound Name in Audio Bank.
     }
 }
-
 -- 2.1.0 End
 
 -- Phone --
 Config.RenewedPhonePayment = false -- Enables use of Renewed-Phone Payment System and Notifications
 
 -- Syphoning --
-Config.UseSyphoning = false -- Follow the Syphoning Install Guide to enable this option!
+Config.UseSyphoning = true -- Follow the Syphoning Install Guide to enable this option!
 Config.SyphonDebug = false -- Used for Debugging the syphon portion!
 Config.SyphonKitCap = 50 -- Maximum amount (in L) the syphon kit can fit!
 Config.SyphonPoliceCallChance = 25 -- Math.Random(1, 100) Default: 25%
-Config.SyphonDispatchSystem = "ps-dispatch" -- Options: "ps-dispatch", "qb-dispatch", "qb-default" (just blips) or "custom" (Custom: you must configure yourself!)
+Config.SyphonDispatchSystem = "qb-default" -- Options: "ps-dispatch", "qb-dispatch", "qb-default" (just blips) or "custom" (Custom: you must configure yourself!)
 
 --- Jerry Can -----
 Config.UseJerryCan = true -- Enable the Jerry Can functionality. Will only work if properly installed.
@@ -101,9 +103,9 @@ Config.RefuelAnimation = "gar_ig_5_filling_can" -- This is for refueling and cha
 Config.RefuelAnimationDictionary = "timetable@gardener@filling_can" -- This is for refueling and charging.
 
 --- Player Owned Gas (Gasoline) Ergonomic Refueling Stations (Poggers) ---
-Config.PlayerOwnedGasStationsEnabled = true -- When true, peds will be located at all gas stations, and players will be able to talk with peds & purchase gas stations, having to manage fuel supplies.
+Config.PlayerOwnedGasStationsEnabled = false -- When true, peds will be located at all gas stations, and players will be able to talk with peds & purchase gas stations, having to manage fuel supplies.
 Config.StationFuelSalePercentage = 0.65 -- % of sales that the station gets. If they sell 4 Liters of Gas for $16 (not including taxes), they will get 16*Config.StationFuelSalePercentage back from the sale. Treat this as tax, also, it balances the profit margins a bit.
-Config.EmergencyShutOff = false -- When true, players can walk up to the ped and shut off the pumps at a gas station. While false, this option is disabled, because it can obviously be an issue. 
+Config.EmergencyShutOff = false -- When true, players can walk up to the ped and shut off the pumps at a gas station. While false, this option is disabled, because it can obviously be an issue.
 Config.UnlimitedFuel = false -- When true, the fuel stations will not require refuelling by gas station owners, this is for the early stages of implementation.
 Config.MaxFuelReserves = 100000 -- This is the maximum amount that the fuel station's reserves can hold.
 Config.FuelReservesPrice = 2.0 -- This is the price of fuel reserves for gas station owners.
@@ -246,7 +248,7 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = true,
                 ['on_duty_only'] = true,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
@@ -264,7 +266,7 @@ Config.AirAndWaterVehicleFueling = {
                     vector2(364.99, -588.36),
                     vector2(361.57, -597.44),
                     vector2(351.71, -601.99),
-                    vector2(342.19, -598.38), 
+                    vector2(342.19, -598.38),
                     vector2(337.23, -587.49),
                 },
                 ['minmax'] = {
@@ -278,7 +280,7 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = true,
                 ['on_duty_only'] = true,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
@@ -306,7 +308,7 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = true,
                 ['on_duty_only'] = true,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
@@ -334,14 +336,14 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = false,
                 ['on_duty_only'] = false,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
                 ['model'] = 'prop_gas_pump_1d',
                 ['coords'] = vector4(-923.12, -2976.81, 12.95, 149.55),
             }
-        }, 
+        },
         -- Back Right Terminal
         [5] = {
             ['PolyZone'] = {
@@ -362,7 +364,7 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = false,
                 ['on_duty_only'] = false,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
@@ -390,14 +392,14 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = false,
                 ['on_duty_only'] = false,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
                 ['model'] = 'prop_gas_pump_1d',
                 ['coords'] = vector4(-706.13, -1464.14, 4.04, 320.0),
             }
-        },  
+        },
         -- La Puerta Helicopter Pad #2
         [7] = {
             ['PolyZone'] = {
@@ -418,14 +420,14 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = false,
                 ['on_duty_only'] = false,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
                 ['model'] = 'prop_gas_pump_1d',
                 ['coords'] = vector4(-764.81, -1434.32, 4.06, 320.0),
             }
-        },  
+        },
         -- La Puerta Boat Dock #1
         [8] = {
             ['PolyZone'] = {
@@ -446,14 +448,14 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = false,
                 ['on_duty_only'] = false,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
                 ['model'] = 'prop_gas_pump_1d',
                 ['coords'] = vector4(-805.9, -1496.68, 0.6, 200.00),
             }
-        },  
+        },
         -- Fort Zancudo Military Base Hangar
         [9] = {
             ['PolyZone'] = {
@@ -474,14 +476,14 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = true,
                 ['on_duty_only'] = true,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
                 ['model'] = 'prop_gas_pump_1d',
                 ['coords'] = vector4(-2148.8, 3283.99, 31.81, 240.0),
             }
-        },  
+        },
         -- Paleto Bay Police Department
         [10] = {
             ['PolyZone'] = {
@@ -502,14 +504,14 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = true,
                 ['on_duty_only'] = true,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
                 ['model'] = 'prop_gas_pump_1d',
                 ['coords'] = vector4(-486.22, 5977.65, 30.3, 315.4),
             }
-        },  
+        },
         -- Grapeseed Airfield
         [11] = {
             ['PolyZone'] = {
@@ -530,14 +532,14 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = false,
                 ['on_duty_only'] = false,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
                 ['model'] = 'prop_gas_pump_1d',
                 ['coords'] = vector4(2101.82, 4776.8, 40.02, 21.41),
             }
-        },  
+        },
         -- Grapeseed Airfield
         [12] = {
             ['PolyZone'] = {
@@ -558,14 +560,14 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = false,
                 ['on_duty_only'] = false,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
                 ['model'] = 'prop_gas_pump_1d',
                 ['coords'] = vector4(1338.13, 4269.62, 30.5, 85.00),
             }
-        },  
+        },
         -- Bob Smith PD
         [13] = {
             ['PolyZone'] = {
@@ -590,14 +592,14 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = true,
                 ['on_duty_only'] = true,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
                 ['model'] = 'prop_gas_pump_1d',
                 ['coords'] = vector4(-1089.72, -830.6, 36.68, 129.00),
             }
-        },  
+        },
         -- Merryweather Helipad
         [14] = {
             ['PolyZone'] = {
@@ -622,7 +624,7 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = false,
                 ['on_duty_only'] = false,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
@@ -650,7 +652,7 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = false,
                 ['on_duty_only'] = false,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
@@ -678,7 +680,7 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = false,
                 ['on_duty_only'] = false,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
@@ -706,7 +708,7 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = false,
                 ['on_duty_only'] = false,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
@@ -735,12 +737,124 @@ Config.AirAndWaterVehicleFueling = {
                 ['enabled'] = false,
                 ['on_duty_only'] = false,
                 ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
+                    'police', 'ambulance', 'lssd', 'sasp'
                 },
             },
             ['prop'] = {
                 ['model'] = 'prop_gas_pump_1d',
                 ['coords'] = vector4(1748.31, 3297.08, 40.16, 15.0),
+            }
+        },
+        -- Del Perro Police Department
+        [19] = {
+            ['PolyZone'] = {
+                ['coords'] = {
+                    vector2(-588.32177734375, -442.37680053711),
+                    vector2(-605.55822753906, -442.40106201172),
+                    vector2(-605.55572509766, -417.76812744141),
+                    vector2(-588.41998291016, -417.62487792969)
+                },
+                ['minmax'] = {
+                    ['min'] = 48.00,
+                    ['max'] = 58.00,
+                },
+            },
+            ['draw_text'] = "[G] Refuel Aircraft",
+            ['type'] = 'air',
+            ['whitelist'] = {
+                ['enabled'] = true,
+                ['on_duty_only'] = true,
+                ['whitelisted_jobs'] = {
+                    'police', 'ambulance', 'lssd', 'sasp'
+                },
+            },
+            ['prop'] = {
+                ['model'] = 'prop_gas_pump_1d',
+                ['coords'] = vector4(-604.71, -423.43, 48.55, 270.82),
+            }
+        },
+        -- Mount Zonah Medical Center
+        [20] = {
+            ['PolyZone'] = {
+                ['coords'] = {
+                    vector2(-453.4465637207, -283.18698120117),
+                    vector2(-448.74182128906, -294.29632568359),
+                    vector2(-459.71279907227, -298.82601928711),
+                    vector2(-464.42538452148, -287.87548828125)
+                },
+                ['minmax'] = {
+                    ['min'] = 77.00,
+                    ['max'] = 87.00,
+                },
+            },
+            ['draw_text'] = "[G] Refuel Aircraft",
+            ['type'] = 'air',
+            ['whitelist'] = {
+                ['enabled'] = true,
+                ['on_duty_only'] = true,
+                ['whitelisted_jobs'] = {
+                    'police', 'ambulance', 'lssd', 'sasp'
+                },
+            },
+            ['prop'] = {
+                ['model'] = 'prop_gas_pump_1d',
+                ['coords'] = vector4(-462.7, -292.05, 77.16, 292.85),
+            }
+        },
+        -- Los Santos County Sheriff's Office
+        [21] = {
+            ['PolyZone'] = {
+                ['coords'] = {
+                    vector2(1832.3583984375, 3684.31640625),
+                    vector2(1826.4055175781, 3694.3686523438),
+                    vector2(1815.7316894531, 3688.0114746094),
+                    vector2(1821.4842529297, 3677.9743652344)
+                },
+                ['minmax'] = {
+                    ['min'] = 41.00,
+                    ['max'] = 51.00,
+                },
+            },
+            ['draw_text'] = "[G] Refuel Aircraft",
+            ['type'] = 'air',
+            ['whitelist'] = {
+                ['enabled'] = true,
+                ['on_duty_only'] = true,
+                ['whitelisted_jobs'] = {
+                    'police', 'ambulance', 'lssd', 'sasp'
+                },
+            },
+            ['prop'] = {
+                ['model'] = 'prop_gas_pump_1d',
+                ['coords'] = vector4(1817.69, 3686.06, 41.98, 301.95),
+            }
+        },
+        -- Sandy Shores Clinic
+        [22] = {
+            ['PolyZone'] = {
+                ['coords'] = {
+                    vector2(1635.0187988281, 3643.8869628906),
+                    vector2(1627.1965332031, 3657.4262695312),
+                    vector2(1639.7080078125, 3664.5876464844),
+                    vector2(1647.0791015625, 3650.5935058594)
+                },
+                ['minmax'] = {
+                    ['min'] = 34.00,
+                    ['max'] = 44.00,
+                },
+            },
+            ['draw_text'] = "[G] Refuel Aircraft",
+            ['type'] = 'air',
+            ['whitelist'] = {
+                ['enabled'] = true,
+                ['on_duty_only'] = true,
+                ['whitelisted_jobs'] = {
+                    'police', 'ambulance', 'lssd', 'sasp'
+                },
+            },
+            ['prop'] = {
+                ['model'] = 'prop_gas_pump_1d',
+                ['coords'] = vector4(1636.82, 3645.51, 34.34, 28.37),
             }
         },
         -- La Mesa Landing Pad (Custom)
@@ -797,7 +911,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 167.06, 
+            x = 167.06,
             y = -1553.56,
             z = 28.26,
             h = 220.44,
@@ -820,7 +934,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = -40.94, 
+            x = -40.94,
             y = -1751.7,
             z = 28.42,
             h = 140.72,
@@ -842,7 +956,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = -531.2, 
+            x = -531.2,
             y = -1220.83,
             z = 17.45,
             h = 335.73,
@@ -852,7 +966,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         label = "Dutch London Xero",
     },
     [4] = {
-        zones = { 
+        zones = {
             vector2(-696.77, -948.94),
             vector2(-739.47, -951.07),
             vector2(-734.73, -906.5),
@@ -866,7 +980,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = -705.66, 
+            x = -705.66,
             y = -905.04,
             z = 18.22,
             h = 179.46,
@@ -888,7 +1002,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 288.83, 
+            x = 288.83,
             y = -1267.01,
             z = 28.44,
             h = 93.81,
@@ -911,7 +1025,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 816.42, 
+            x = 816.42,
             y = -1040.51,
             z = 25.75,
             h = 2.07,
@@ -935,7 +1049,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 1211.13, 
+            x = 1211.13,
             y = -1389.18,
             z = 34.38,
             h = 177.39,
@@ -958,7 +1072,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 1163.64, 
+            x = 1163.64,
             y = -314.21,
             z = 68.21,
             h = 190.92,
@@ -982,7 +1096,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 642.08, 
+            x = 642.08,
             y = 260.59,
             z = 102.3,
             h = 61.39,
@@ -1004,7 +1118,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = -1428.4, 
+            x = -1428.4,
             y = -268.69,
             z = 45.21,
             h = 132.94,
@@ -1028,7 +1142,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = -2074.28, 
+            x = -2074.28,
             y = -327.22,
             z = 12.32,
             h = 132.94,
@@ -1051,7 +1165,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = -93.02, 
+            x = -93.02,
             y = 6410.11,
             z = 30.64,
             h = 49.19,
@@ -1075,7 +1189,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 170.44, 
+            x = 170.44,
             y = 6633.74,
             z = 30.59,
             h = 221.95,
@@ -1097,7 +1211,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 1698.62, 
+            x = 1698.62,
             y = 6425.84,
             z = 31.76,
             h = 156.61,
@@ -1119,9 +1233,9 @@ Config.GasStations = { -- Configuration options for various gas station related 
         pumpheightadd = 1.5, --  For Config.PumpHose
         pedmodel = "a_m_m_indian_01",
         cost = 100000,
-        shutoff = false, 
+        shutoff = false,
         pedcoords = {
-            x = 1704.59, 
+            x = 1704.59,
             y = 4917.5,
             z = 41.06,
             h = 52.16,
@@ -1138,13 +1252,13 @@ Config.GasStations = { -- Configuration options for various gas station related 
             vector2(2001.52, 3790.91)
         },
         minz = 31.18,
-        maxz = 33.60, 
+        maxz = 33.60,
         pumpheightadd = 1.5, --  For Config.PumpHose
         pedmodel = "a_m_m_indian_01",
         cost = 100000,
-        shutoff = false, 
+        shutoff = false,
         pedcoords = {
-            x = 2001.33, 
+            x = 2001.33,
             y = 3779.87,
             z = 31.18,
             h = 211.44,
@@ -1167,7 +1281,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 1776.57, 
+            x = 1776.57,
             y = 3327.36,
             z = 40.43,
             h = 297.57,
@@ -1188,9 +1302,9 @@ Config.GasStations = { -- Configuration options for various gas station related 
         pumpheightadd = 1.5, --  For Config.PumpHose
         pedmodel = "a_m_m_indian_01",
         cost = 100000,
-        shutoff = false, 
+        shutoff = false,
         pedcoords = {
-            x = 2673.98, 
+            x = 2673.98,
             y = 3266.87,
             z = 54.24,
             h = 240.9,
@@ -1215,7 +1329,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 1201.68, 
+            x = 1201.68,
             y = 2655.24,
             z = 36.85,
             h = 322.97,
@@ -1238,7 +1352,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 1039.44, 
+            x = 1039.44,
             y = 2664.37,
             z = 38.55,
             h = 10.07,
@@ -1262,7 +1376,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 265.89, 
+            x = 265.89,
             y = 2598.3,
             z = 43.84,
             h = 9.88,
@@ -1285,7 +1399,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 46.53, 
+            x = 46.53,
             y = 2789.05,
             z = 56.88,
             h = 143.93,
@@ -1332,7 +1446,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 2545.02, 
+            x = 2545.02,
             y = 2591.72,
             z = 36.96,
             h = 113.52,
@@ -1408,6 +1522,29 @@ Config.GasStations = { -- Configuration options for various gas station related 
         electricchargercoords = vector4(-341.63, -1459.39, 29.76, 271.73),
         label = "Alta Street Globe Oil",
     },
+    [28] = {
+        zones = {
+            vector2(-585.45001220703, -395.65902709961),
+            vector2(-590.76190185547, -395.61911010742),
+            vector2(-590.85034179688, -403.2995300293),
+            vector2(-585.47412109375, -403.33483886719)
+        },
+        minz = 29.16,
+        maxz = 32.16,
+        pumpheightadd = 1.5,
+        pedmodel = 's_m_y_cop_01',
+        cost = 100000,
+        shutoff = false,
+        pedcoords = {
+            x = -591.03,
+            y = -399.88,
+            z = 30.16,
+            h = 89.82,
+        },
+        electriccharger = nil,
+        electricchargercoords = vector4(-341.63, -1459.39, 29.76, 271.73),
+        label = "Del Perro Police Department",
+    },
     --[[
     [28] = { -- Gabz Ottos Autos Location, Line In If Needed.
         zones = {
@@ -1468,7 +1605,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         maxz = 800.0,
         pedmodel = "a_m_m_indian_01", -- This is the model of the ped that will be created for the management menu @ the gas station.
         cost = 100000, -- This is the cost of the gas station for someone purchasing it, not including tax.
-        shutoff = false, -- Leave as false, this is for when someone turns off the pumps. 
+        shutoff = false, -- Leave as false, this is for when someone turns off the pumps.
         pedcoords = { -- Vector4, X, Y, Z & Heading.
             x = -342.37,
             y = -1482.97,
