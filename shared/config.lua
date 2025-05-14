@@ -47,7 +47,6 @@ Config.EmergencyServicesDiscount = {
         "police",
         "lssd",
         "sasp",
-        -- "trooper",
         "ambulance",
     }
 }
@@ -60,6 +59,7 @@ Config.Ox = {
     DrawText = true, -- Uses Ox DrawText instead of qb-core DrawText.
     Progress = true -- Uses Ox ProgressBar instead of progressbar.
 }
+
 Config.TargetResource = "ox_target" -- Supported: { 'qb-target', 'ox_target'} -- Others must use the same format as QB-Target or manual configuration is required.
 Config.PumpHose = true -- If true, it creates a hose from the pump to the nozzle the client is holding, to give it a more realistic feel.
 Config.RopeType = { -- Options: 1-2-3-4-5; 1: Khaki Color, Kind of Thick, 2: Very Thick Khaki Rope, 3: Very Thick Black Rope, 4: Very Thin Black Rope, 5: Same as 3
@@ -857,6 +857,35 @@ Config.AirAndWaterVehicleFueling = {
                 ['coords'] = vector4(1636.82, 3645.51, 34.34, 28.37),
             }
         },
+        -- Vinewood Police Department
+        -- [23] = {
+        --     ['PolyZone'] = {
+        --         ['coords'] = {
+        --             vector2(1635.0187988281, 3643.8869628906),
+        --             vector2(1627.1965332031, 3657.4262695312),
+        --             vector2(1639.7080078125, 3664.5876464844),
+        --             vector2(1647.0791015625, 3650.5935058594)
+        --         },
+        --         ['minmax'] = {
+        --             ['min'] = 34.00,
+        --             ['max'] = 44.00,
+        --         },
+        --     },
+        --     ['draw_text'] = "[G] Refuel Aircraft",
+        --     ['type'] = 'air',
+        --     ['whitelist'] = {
+        --         ['enabled'] = true,
+        --         ['on_duty_only'] = true,
+        --         ['whitelisted_jobs'] = {
+        --             'police', 'ambulance', 'lssd', 'sasp'
+        --         },
+        --     },
+        --     ['prop'] = {
+        --         ['model'] = 'prop_gas_pump_1d',
+        --         ['coords'] = vector4(1636.82, 3645.51, 34.34, 28.37),
+        --     }
+        -- },
+
         -- La Mesa Landing Pad (Custom)
         -- Does not work in conjunction with Gabz Trooper PD.
         -- [19] = {
@@ -1522,29 +1551,31 @@ Config.GasStations = { -- Configuration options for various gas station related 
         electricchargercoords = vector4(-341.63, -1459.39, 29.76, 271.73),
         label = "Alta Street Globe Oil",
     },
-    [28] = {
-        zones = {
-            vector2(-585.45001220703, -395.65902709961),
-            vector2(-590.76190185547, -395.61911010742),
-            vector2(-590.85034179688, -403.2995300293),
-            vector2(-585.47412109375, -403.33483886719)
-        },
-        minz = 29.16,
-        maxz = 32.16,
-        pumpheightadd = 1.5,
-        pedmodel = 's_m_y_cop_01',
-        cost = 100000,
-        shutoff = false,
-        pedcoords = {
-            x = -591.03,
-            y = -399.88,
-            z = 30.16,
-            h = 89.82,
-        },
-        electriccharger = nil,
-        electricchargercoords = vector4(-341.63, -1459.39, 29.76, 271.73),
-        label = "Del Perro Police Department",
-    },
+    
+    -- [28] = {
+    --     zones = {
+    --         vector2(-585.45001220703, -395.65902709961),
+    --         vector2(-590.76190185547, -395.61911010742),
+    --         vector2(-590.85034179688, -403.2995300293),
+    --         vector2(-585.47412109375, -403.33483886719)
+    --     },
+    --     minz = 29.16,
+    --     maxz = 32.16,
+    --     pumpheightadd = 1.5,
+    --     pedmodel = 's_m_y_cop_01',
+    --     cost = 100000,
+    --     shutoff = false,
+    --     pedcoords = {
+    --         x = -591.03,
+    --         y = -399.88,
+    --         z = 30.16,
+    --         h = 89.82,
+    --     },
+    --     electriccharger = nil,
+    --     electricchargercoords = vector4(-341.63, -1459.39, 29.76, 271.73),
+    --     label = "Del Perro Police Department",
+    -- },
+
     --[[
     [28] = { -- Gabz Ottos Autos Location, Line In If Needed.
         zones = {
