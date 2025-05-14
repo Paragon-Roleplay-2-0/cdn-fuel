@@ -13,7 +13,6 @@ A highly in-depth fuel system for **FiveM** with support for the **QBCore Framew
 - Player Job Error on load.
 - Syphoning Issue with QB-Inventory.
 
-
 <br>
 <br>
 
@@ -43,7 +42,6 @@ A highly in-depth fuel system for **FiveM** with support for the **QBCore Framew
 - Configurable Hose for the Fuel Nozzle.
 - Official Support for the [OX Library](https://github.com/overextended/ox_lib). (Inventory/Menus/Target)
 
-
 ![Codine Development Fuel Script Install Banner](https://i.imgur.com/bEiV8G0.png)
 
 ### Before your installation:
@@ -56,7 +54,6 @@ Make sure you have the following dependencies, otherwise, issues most likely wil
 - [interact-sound](https://github.com/plunkettscott/interact-sound)
 - [PolyZone](https://github.com/qbcore-framework/PolyZone)
 - _Other dependencies are included in the resource._
-
 
 ### Begin your installation
 
@@ -76,7 +73,7 @@ Next, we're going to drag the sounds from the *cdn-fuel/assets/sounds* folder in
 
 ### Step 3:
 
-Next, we're going to open our entire resources folder in whichever IDE you use, (we will be using Visual Studio Code for this example) and replace all of your current exports titled "cdn-fuel", "ps-fuel" or "lj-fuel", with "cdn-fuel". Then you want to ensure cdn-fuel in your server's config file.
+Next, we're going to open our entire resources folder in whichever IDE you use, (we will be using Visual Studio Code for this example) and replace all of your current exports titled "LegacyFuel", "ps-fuel" or "lj-fuel", with "cdn-fuel". Then you want to ensure cdn-fuel in your server's config file.
 <br> <br>
 ![step 3](https://i.imgur.com/VZnQpcS.gif)
 
@@ -105,11 +102,9 @@ It is highly recommended, if you plan on restarting the script at all, that you 
 **Firstly**, we will move our _stream_ folder to our new resource, or existing resource. <br> <br> In this example, I have a dummy resource named _cdn-fool_.
 ![explorer_4tflJ0RowY](https://user-images.githubusercontent.com/95599217/209604683-79e18fa7-96ad-456d-b0c4-20632fb4d04c.gif)
 
-
 Next, we will move our _fxmanifest.lua's_ entries for _data_file_ into our new resource, and **REMOVE IT** from _cdn-fuel_.
 
 ![jRtUg319mL](https://user-images.githubusercontent.com/95599217/209604640-54e0a450-6a54-4afa-9fab-cda4f02e7091.gif)
-
 
 ```Lua
 data_file 'DLC_ITYP_REQUEST' 'stream/[electric_nozzle]/electric_nozzle_typ.ytyp'
@@ -117,7 +112,6 @@ data_file 'DLC_ITYP_REQUEST' 'stream/[electric_charger]/electric_charger_typ.yty
 ```
 
 Make sure to **ensure** this new resource as well as _cdn-fuel_ in your _server.cfg_!
-
 
 **If you do not want the Jerry Can or Syphoning Kit items, you are now finished with installation.**
 
@@ -137,6 +131,30 @@ Once there, we will paste the following items at the bottom of our items table.
 ```Lua
 	["syphoningkit"]				 = {["name"] = "syphoningkit", 					["label"] = "Syphoning Kit", 			["weight"] = 5000, 		["type"] = "item", 		["image"] = "syphoningkit.png", 		["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "A kit made to siphon gasoline from vehicles."},
 	["jerrycan"]				 	 = {["name"] = "jerrycan", 						["label"] = "Jerry Can", 				["weight"] = 15000, 	["type"] = "item", 		["image"] = "jerrycan.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "A Jerry Can made to hold gasoline."},
+```
+For Ox Inventory, naviage to *ox_inventory/data/items.lua* and add the following:
+```lua
+	["syphoningkit"] = {
+		label = "Syphoning Kit",
+		weight = 5000,
+		stack = false,
+		close = false,
+		description = "A kit made to siphon gasoline from vehicles.",
+		client = {
+			image = "syphoningkit.png",
+		}
+	},
+
+	["jerrycan"] = {
+		label = "Jerry Can",
+		weight = 15000,
+		stack = false,
+		close = false,
+		description = "A Jerry Can made to hold gasoline.",
+		client = {
+			image = "jerrycan.png",
+		}
+	},
 ```
 **For people using inventories with built-in decay, you must add those onto the item, as it doesn't come with it!**
 <br> <br>
