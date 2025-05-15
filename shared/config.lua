@@ -747,31 +747,31 @@ Config.AirAndWaterVehicleFueling = {
         },
         -- Del Perro Police Department
         [19] = {
-            ['PolyZone'] = {
-                ['coords'] = {
-                    vector2(-588.32177734375, -442.37680053711),
-                    vector2(-605.55822753906, -442.40106201172),
-                    vector2(-605.55572509766, -417.76812744141),
-                    vector2(-588.41998291016, -417.62487792969)
-                },
-                ['minmax'] = {
-                    ['min'] = 48.00,
-                    ['max'] = 58.00,
-                },
-            },
-            ['draw_text'] = "[G] Refuel Aircraft",
-            ['type'] = 'air',
-            ['whitelist'] = {
-                ['enabled'] = true,
-                ['on_duty_only'] = true,
-                ['whitelisted_jobs'] = {
-                    'police', 'ambulance', 'lssd', 'sasp'
-                },
-            },
-            ['prop'] = {
-                ['model'] = 'prop_gas_pump_1d',
-                ['coords'] = vector4(-604.71, -423.43, 48.55, 270.82),
-            }
+            -- ['PolyZone'] = {
+            --     ['coords'] = {
+            --         vector2(-588.32177734375, -442.37680053711),
+            --         vector2(-605.55822753906, -442.40106201172),
+            --         vector2(-605.55572509766, -417.76812744141),
+            --         vector2(-588.41998291016, -417.62487792969)
+            --     },
+            --     ['minmax'] = {
+            --         ['min'] = 48.00,
+            --         ['max'] = 58.00,
+            --     },
+            -- },
+            -- ['draw_text'] = "[G] Refuel Aircraft",
+            -- ['type'] = 'air',
+            -- ['whitelist'] = {
+            --     ['enabled'] = true,
+            --     ['on_duty_only'] = true,
+            --     ['whitelisted_jobs'] = {
+            --         'police', 'ambulance', 'lssd', 'sasp'
+            --     },
+            -- },
+            -- ['prop'] = {
+            --     ['model'] = 'prop_gas_pump_1d',
+            --     ['coords'] = vector4(-604.71, -423.43, 48.55, 270.82),
+            -- }
         },
         -- Mount Zonah Medical Center
         [20] = {
@@ -1551,7 +1551,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         electricchargercoords = vector4(-341.63, -1459.39, 29.76, 271.73),
         label = "Alta Street Globe Oil",
     },
-    
+
     -- [28] = {
     --     zones = {
     --         vector2(-585.45001220703, -395.65902709961),
