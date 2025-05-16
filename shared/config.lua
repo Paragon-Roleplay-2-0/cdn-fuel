@@ -746,35 +746,36 @@ Config.AirAndWaterVehicleFueling = {
             }
         },
         -- Del Perro Police Department
-        [19] = {
-            -- ['PolyZone'] = {
-            --     ['coords'] = {
-            --         vector2(-588.32177734375, -442.37680053711),
-            --         vector2(-605.55822753906, -442.40106201172),
-            --         vector2(-605.55572509766, -417.76812744141),
-            --         vector2(-588.41998291016, -417.62487792969)
-            --     },
-            --     ['minmax'] = {
-            --         ['min'] = 48.00,
-            --         ['max'] = 58.00,
-            --     },
-            -- },
-            -- ['draw_text'] = "[G] Refuel Aircraft",
-            -- ['type'] = 'air',
-            -- ['whitelist'] = {
-            --     ['enabled'] = true,
-            --     ['on_duty_only'] = true,
-            --     ['whitelisted_jobs'] = {
-            --         'police', 'ambulance', 'lssd', 'sasp'
-            --     },
-            -- },
-            -- ['prop'] = {
-            --     ['model'] = 'prop_gas_pump_1d',
-            --     ['coords'] = vector4(-604.71, -423.43, 48.55, 270.82),
-            -- }
-        },
+        -- [] = {
+        --     ['PolyZone'] = {
+        --         ['coords'] = {
+        --             vector2(-588.32177734375, -442.37680053711),
+        --             vector2(-605.55822753906, -442.40106201172),
+        --             vector2(-605.55572509766, -417.76812744141),
+        --             vector2(-588.41998291016, -417.62487792969)
+        --         },
+        --         ['minmax'] = {
+        --             ['min'] = 48.00,
+        --             ['max'] = 58.00,
+        --         },
+        --     },
+        --     ['draw_text'] = "[G] Refuel Aircraft",
+        --     ['type'] = 'air',
+        --     ['whitelist'] = {
+        --         ['enabled'] = true,
+        --         ['on_duty_only'] = true,
+        --         ['whitelisted_jobs'] = {
+        --             'police', 'ambulance', 'lssd', 'sasp'
+        --         },
+        --     },
+        --     ['prop'] = {
+        --         ['model'] = 'prop_gas_pump_1d',
+        --         ['coords'] = vector4(-604.71, -423.43, 48.55, 270.82),
+        --     }
+        -- },
+
         -- Mount Zonah Medical Center
-        [20] = {
+        [19] = {
             ['PolyZone'] = {
                 ['coords'] = {
                     vector2(-453.4465637207, -283.18698120117),
@@ -802,7 +803,7 @@ Config.AirAndWaterVehicleFueling = {
             }
         },
         -- Los Santos County Sheriff's Office
-        [21] = {
+        [20] = {
             ['PolyZone'] = {
                 ['coords'] = {
                     vector2(1832.3583984375, 3684.31640625),
@@ -830,7 +831,7 @@ Config.AirAndWaterVehicleFueling = {
             }
         },
         -- Sandy Shores Clinic
-        [22] = {
+        [21] = {
             ['PolyZone'] = {
                 ['coords'] = {
                     vector2(1635.0187988281, 3643.8869628906),
@@ -858,33 +859,33 @@ Config.AirAndWaterVehicleFueling = {
             }
         },
         -- Vinewood Police Department
-        -- [23] = {
-        --     ['PolyZone'] = {
-        --         ['coords'] = {
-        --             vector2(1635.0187988281, 3643.8869628906),
-        --             vector2(1627.1965332031, 3657.4262695312),
-        --             vector2(1639.7080078125, 3664.5876464844),
-        --             vector2(1647.0791015625, 3650.5935058594)
-        --         },
-        --         ['minmax'] = {
-        --             ['min'] = 34.00,
-        --             ['max'] = 44.00,
-        --         },
-        --     },
-        --     ['draw_text'] = "[G] Refuel Aircraft",
-        --     ['type'] = 'air',
-        --     ['whitelist'] = {
-        --         ['enabled'] = true,
-        --         ['on_duty_only'] = true,
-        --         ['whitelisted_jobs'] = {
-        --             'police', 'ambulance', 'lssd', 'sasp'
-        --         },
-        --     },
-        --     ['prop'] = {
-        --         ['model'] = 'prop_gas_pump_1d',
-        --         ['coords'] = vector4(1636.82, 3645.51, 34.34, 28.37),
-        --     }
-        -- },
+        [22] = {
+            ['PolyZone'] = {
+                ['coords'] = {
+                    vector2(607.68249511719, -3.0402057170868),
+                    vector2(596.52838134766, 1.455405831337),
+                    vector2(600.89965820312, 12.140917778015),
+                    vector2(611.96069335938, 7.7657380104065)
+                },
+                ['minmax'] = {
+                    ['min'] = 100.00,
+                    ['max'] = 110.00,
+                },
+            },
+            ['draw_text'] = "[G] Refuel Aircraft",
+            ['type'] = 'air',
+            ['whitelist'] = {
+                ['enabled'] = true,
+                ['on_duty_only'] = true,
+                ['whitelisted_jobs'] = {
+                    'police', 'ambulance', 'lssd', 'sasp'
+                },
+            },
+            ['prop'] = {
+                ['model'] = 'prop_gas_pump_1d',
+                ['coords'] = vector4(610.88, 5.99, 100.25, 67.52),
+            }
+        },
 
         -- La Mesa Landing Pad (Custom)
         -- Does not work in conjunction with Gabz Trooper PD.
