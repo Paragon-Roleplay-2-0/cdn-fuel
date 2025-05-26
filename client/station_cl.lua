@@ -209,12 +209,12 @@ if Config.PlayerOwnedGasStationsEnabled then -- This is so Player Owned Gas Stat
                                                                     -- Handle Vehicle Dropoff
                                                                     -- Remove PolyZone --
                                                                     ReservePickupData.PolyZone:destroy()
-                                                                    ReservePickupData.PolyZone = nil                                                       
+                                                                    ReservePickupData.PolyZone = nil
                                                                     -- Get Ped Out of Vehicle if Inside --
                                                                     if IsPedInAnyVehicle(ped, true) and GetVehiclePedIsIn(ped, false) == spawnedDeliveryTruck then
                                                                         TaskLeaveVehicle(
-                                                                            ped --[[ Ped ]], 
-                                                                            spawnedDeliveryTruck --[[ Vehicle ]], 
+                                                                            ped --[[ Ped ]],
+                                                                            spawnedDeliveryTruck --[[ Vehicle ]],
                                                                             1 --[[ flags | integer ]]
                                                                         )
                                                                         Wait(5000)
@@ -225,8 +225,8 @@ if Config.PlayerOwnedGasStationsEnabled then -- This is so Player Owned Gas Stat
                                                                     else
                                                                         exports[Config.Core]:HideText()
                                                                     end
-                                                                    
-                                                                    -- Remove Vehicle --                                            
+
+                                                                    -- Remove Vehicle --
                                                                     DeleteEntity(spawnedDeliveryTruck)
                                                                     DeleteEntity(spawnedTankerTrailer)
                                                                     -- Send Data to Server to Put Into Station --
@@ -261,7 +261,7 @@ if Config.PlayerOwnedGasStationsEnabled then -- This is so Player Owned Gas Stat
                                                         hasArrivedAtLocation = true
                                                         if Config.Ox.DrawText then
                                                             lib.showTextUI(Lang:t("draw_text_fuel_dropoff"), {
-                                                                position = 'left-center'
+                                                                position = 'right-center'
                                                             })
                                                         else
                                                             exports[Config.Core]:DrawText(Lang:t("draw_text_fuel_dropoff"), 'left')
